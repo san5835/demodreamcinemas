@@ -1,0 +1,88 @@
+<ion-header class="ca-new-header ca-home-header">
+
+  <ion-toolbar>
+    <span class="event-list-totalpage">
+      <span class="ca-back">
+        <button (click)="redirectohome()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </span>
+
+      <span class="ca-headertitle">Dream Cinemas
+
+      </span>
+
+      <span class="home-btn">
+        <button>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </span>
+
+      <span class="ca-rightmenu">
+
+        <ion-buttons right>
+
+          <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+
+        </ion-buttons>
+      </span>
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="home blue-theme payment-cart-outer">
+
+
+  <div class="class-listing-innercontentpad logo-section">
+    <div>
+      <ion-list class="ca-clear-block ca-top-firstpad1" radio-group>
+
+        <h4 class="ca-medium-blacktext">Subscription</h4> <br>
+
+        <div radio-group>
+          <ion-item>
+            <ion-label>
+              <span class="card-content">One Month Subscription - Rs. 99</span>
+              <!-- <img src="assets/img/visa1.jpg" />
+            <img src="assets/img/americanexpress.png" /> -->
+            </ion-label>
+            <ion-radio value="month" (click) = "subsplan('month')" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <span class="card-content paypal">3 Month Subscription - Rs.297</span>
+            </ion-label>
+            <ion-radio value="threemonth" (click) = "subsplan('threemonth')"></ion-radio>
+          </ion-item>
+        </div>
+      <br>
+     
+      </ion-list>
+    </div>
+
+    <div class="subscription-btn">
+      <p>Subscribe 3 Month get a Free Shirt</p>
+    </div>
+
+    <br>
+
+    <div><p class="logname">{{ payretTex }}</p></div>
+    <br />
+
+    <div class="login-page">
+      <div class="content-areabox2">
+        <div class="login-btn">
+          <button (click) ="proceedtopayment()" >PROCEED TO PAYMENT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</ion-content>
+<ion-footer>
+  <div class="txtbanner1">Get a Free Shirt on your subscription</div>
+</ion-footer>

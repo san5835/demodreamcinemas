@@ -1,0 +1,78 @@
+<ion-header class="ca-new-header ca-home-header">
+ 
+  <ion-toolbar>
+    <span class="event-list-totalpage">
+      <span class="ca-back">  <button navPop><ion-icon name="arrow-back"></ion-icon></button> </span>      
+      <span class="dm-headertitle">Dream Cinemas  </span>
+    </span>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="home blue-theme payment-cart-outer">
+
+
+    <div class="home-innercontenpad login-page input-bottompadrdce">
+        <div class="content-areabox2 event-category-list individual-category-page">
+          <div class="ca-top-section-pad">
+           <span class="payment-top-lft">
+              <h1>sign in</h1>            
+              </span> 
+          </div>
+          <p *ngIf="loggedInfo" class="ca-successmsg" [innerHTML]="loggedInfo"> 
+           </p>
+
+
+    <ion-list inset class="ca-clear-block ca-top-firstpad">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+          <ion-item>
+            <ion-label>Your Email Address</ion-label>
+            <ion-input type="text"  [formControl]="myForm.controls['email']" ></ion-input>
+          </ion-item>
+          <p *ngIf="username.hasError('required') && username.touched && validate!=''" danger>Email is required</p>
+          <p *ngIf="username.hasError('required')  && validate==''" danger>Email is required</p>
+          <p *ngIf="!username.hasError('required')&&!username.valid && username.touched && validate!=''" danger>Invalid Email</p>
+          <p *ngIf="!username.hasError('required')&&!username.valid && validate==''" danger>Invalid Email</p>
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" [formControl]="myForm.controls['password']"></ion-input>
+          </ion-item>
+          <p *ngIf="!usrpassword.valid && usrpassword.touched && validate!=''" danger required>Password is required</p>
+         <p *ngIf="!usrpassword.valid && validate==''" danger required>Password is required</p>
+          <span class="login-btn">
+          <button block > 
+          <!--<ion-icon name="log-in"></ion-icon>-->sign in</button>
+          </span>
+        </form>
+        <ion-item><span class="ca-forgotnpass"><a href="" [navPush]="forgotPage" style="text-decoration: none">Forgotten Password?</a></span> </ion-item>
+      </ion-list>
+
+      
+   </div>
+  </div>
+
+  <div class="home-innercontenpad blue-theme ca-top-firstpad">
+      <div class="content-areabox">
+  
+  <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <img src="assets/slides/landingbg.jpg" class="imgslide2">
+        </ion-col>
+        <ion-col col-6>
+          <img src="assets/slides/uriyvarai.jpg" class="imgslide2">
+        </ion-col>        
+      </ion-row>
+    </ion-grid>
+</div>
+</div>
+
+</ion-content>
+  <div class="footer-container">
+    <ion-footer>
+      
+    </ion-footer>
+  </div>
+
+
+
+
+

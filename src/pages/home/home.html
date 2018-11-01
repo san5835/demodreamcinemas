@@ -1,0 +1,177 @@
+<ion-header class="ca-new-header ca-home-header">
+
+  <ion-toolbar>
+    <span class="event-list-totalpage">
+      <span class="ca-back">
+        <button>
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </span>
+      <!--<span class="ca-leftmenu">
+        <ion-buttons left>
+          <button>
+            <ion-icon name="home"></ion-icon>
+          </button>
+        </ion-buttons>
+      </span>-->
+      <span class="ca-headertitle">Dream Cinemas</span>
+
+      <span class="home-btn">
+        <button>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </span>
+
+      <span class="ca-rightmenu">
+
+        <ion-buttons right>
+
+          <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+
+        </ion-buttons>
+      </span>
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="card-background-page ca-home scrol-content-topmarginnone">
+  <div>
+    <ion-slides>
+      <ion-slide>
+        <img src="assets/slides/thakkar.jpg">
+      </ion-slide> 
+      <ion-slide>
+        <img src="assets/slides/uriyvarai.jpg">
+      </ion-slide>     
+    </ion-slides>
+  </div>
+
+
+
+  <div class="event-list-innerbox" padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="latest">
+        Latest
+      </ion-segment-button>
+      <ion-segment-button value="songs">
+        Songs
+      </ion-segment-button>
+      <ion-segment-button value="trailers">
+        Trailers
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div class="home-innercontenpad blue-theme">
+    <div class="content-areabox">
+
+      <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'latest'">
+          <ion-item class="homeitem">
+            <div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6>
+                    <img src="assets/slides/landingbg.jpg" class="imgslide2">
+                  </ion-col>
+                  <ion-col col-6>
+                    <img src="assets/slides/uriyvarai.jpg" class="imgslide2">
+                  </ion-col>
+                  <ion-col col-6>
+                    <img src="assets/slides/Nizhalanavan.jpg" class="imgslide2">
+                  </ion-col>
+                  <ion-col col-6>
+                    <img src="assets/slides/masiveethi.jpg" class="imgslide2">
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-item>
+        </ion-list>
+
+
+
+        <ion-list *ngSwitchCase="'songs'">
+         
+          <div class="dum-header">           
+            <ion-item *ngFor="let hsongs of homesongs">
+              <ion-thumbnail item-start>
+                <img src="{{ hsongs.media_thumb }}">
+              </ion-thumbnail>
+              <h2>{{ hsongs.media_title }}</h2>
+              <p>{{ hsongs.media_desc + '-' +  hsongs.media_type }}</p>
+              <p>{{  hsongs.media_type }}</p>
+
+              <button ion-button  item-end (click)="startAudio(hsongs)" color="light">Play</button>
+            
+            </ion-item>
+
+           
+
+            <ion-item *ngFor="let hsongs of homevideo">
+              <ion-thumbnail item-start>
+                <img src="{{ hsongs.media_thumb }}">
+              </ion-thumbnail>
+              <h2>{{ hsongs.media_title }}</h2>
+              <p>{{ hsongs.media_desc }}</p>
+              <p>{{  hsongs.media_type }}</p>
+              <button ion-button color="light" item-end (click)="startVideo(hsongs)" color="light">Play</button>
+              
+            </ion-item>
+                
+           <!-- <hr class="hr-divider">-->
+          
+           
+            <div style="margin:10px !important; text-align: center !important;">
+              <button ion-button full color="light" item-end (click)="redirectomediapage('audiosongs')" color="light">View More</button>
+            </div>
+          
+          </div>
+         
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'trailers'">
+         
+        <div class="dum-header">
+         
+          <ion-item *ngFor="let hsongs of hometrailers">
+            <ion-thumbnail item-start>
+              <img src="{{ hsongs.media_thumb }}">
+            </ion-thumbnail>
+            <h2>{{ hsongs.media_title }}</h2>
+            <p>{{ hsongs.media_desc }}</p>
+            <button ion-button item-end (click)="startVideo(hsongs)" color="light">Play</button>
+            
+          </ion-item>
+
+          <div style="margin:10px !important; text-align: center !important;">
+            <button ion-button full color="light" item-end (click)="redirectomediapage('trailers')" color="light">View More</button>
+          </div>
+  
+        </div>
+       
+
+    
+    </ion-list>
+
+    </div>
+
+  </div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  
+  <div class="txtbanner1" *ngIf="subscribestatus != '1'" (click)="subscription()">Get a Free Shirt on your subscription</div>
+
+  <div class="txtbanner1" *ngIf="subscribestatus == '1'" (click)="subscription()">Refer your Friends and Earn Free Gifts</div>
+  <!--
+  <div class="ca-footersection">
+    <button> <ion-icon name="home"></ion-icon> </button>
+    <button>  <ion-icon name="search"></ion-icon></button>
+    <button> <ion-icon name="people"></ion-icon> </button>
+    <button> <ion-icon name="help"></ion-icon> </button>
+    </div>
+  -->
+</ion-footer>

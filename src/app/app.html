@@ -1,0 +1,23 @@
+<ion-menu [content]="content" side="right">
+        <ion-header >
+                <ion-toolbar class="mgbgmenu">
+                  <ion-title>Menu</ion-title>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content>
+
+                <ion-list>
+                  <button ion-item  (click) = "redirectohome()"> Home</button>
+                  <button ion-item (click) = "categorylist()"> Category</button>
+                  <button ion-item (click) = "redirectrefer()" > Refer & Earn </button>
+                  <button ion-item (click) = "redirectmyacc()"> My Account</button>
+                  <button ion-item (click) = "redirectwatch()"> Watch List </button>
+                  <button ion-item (click) = "redirecofflinevideo()"> Offline Videos </button>
+                  <button ion-item (click) = "redirectnotification()"> Notifications </button>
+                  <button ion-item (click)="redirectoaboutus()" > About Us</button>
+                  <button ion-item menuClose (click)="logout()" >Logout </button>
+                </ion-list>
+              </ion-content>
+        </ion-menu>
+
+        <ion-nav [root]="rootPage" id="nav" #content swipe-back-enabled="false" ></ion-nav>

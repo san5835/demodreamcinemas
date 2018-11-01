@@ -1,0 +1,95 @@
+<ion-header class="ca-new-header ca-home-header">
+
+  <ion-toolbar>
+    <span class="event-list-totalpage">
+      <span class="ca-back">
+        <button (click)="redirectohome()">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </span>
+
+      <span class="ca-headertitle">Dream Cinemas
+
+      </span>
+
+      <span class="home-btn">
+        <button>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </span>
+
+      <span class="ca-rightmenu">
+
+        <ion-buttons right>
+
+          <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+
+        </ion-buttons>
+      </span>
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding class="home blue-theme payment-cart-outer">
+
+
+  <div class="home-innercontenpad login-page input-bottompadrdce">
+      <div class="content-areabox2 event-category-list individual-category-page">
+        <div class="ca-top-section-pad">
+         <span class="payment-top-lft">
+            <h1>Payment Success!</h1>            
+            </span> 
+        </div>
+        <p class="ca-successmsg">Thanks for your subscription. Please update the below details to get the free shirt.</p>
+       
+        <ion-list inset class="ca-clear-block ca-top-firstpad" *ngIf="payflag == '2'">
+         
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+              <ion-item>
+                  <ion-label>Shirt Size</ion-label>
+                  <ion-input type="text" [formControl]="myForm.controls['userpref']"  ></ion-input>
+                </ion-item>
+                <p *ngIf="userperf.hasError('required') && userperf.touched && validate!=''" danger>Shirt size is required</p>
+          <p *ngIf="userperf.hasError('required')  && validate==''" danger>Shirt size is required</p>
+  
+            <ion-item>
+              <ion-label>Address for delivery</ion-label>
+              <ion-textarea rows = 5 [formControl]="myForm.controls['useraddress']" ></ion-textarea>
+            </ion-item>  
+            <p *ngIf="usraddress.hasError('required') && usraddress.touched && validate!=''" danger>address is required</p>
+          <p *ngIf="usraddress.hasError('required')  && validate==''" danger>address is required</p>
+            <span class="login-btn" >
+            <button block >Submit</button>
+            </span>
+          </form>          
+        </ion-list>
+
+ </div>
+</div>
+<div class="home-innercontenpad blue-theme ca-top-firstpad" *ngIf="payflag == '1'">
+  <div class="content-areabox">
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>
+      <img src="assets/slides/landingbg.jpg" class="imgslide2">
+    </ion-col>
+    <ion-col col-6>
+      <img src="assets/slides/uriyvarai.jpg" class="imgslide2">
+    </ion-col>        
+  </ion-row>
+</ion-grid>
+
+<br>
+
+<span class="payment-btn" >
+  <button ion-button full class="payment-bt" (click)="redirectohome()">Back to Home</button>
+  </span>
+</div>
+</div>
+
+</ion-content>
